@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <nav class="sticky-top d-flex justify-content-between align-items-center">
+      <h1>Pixel Stories</h1>
+      <img src="./img/CSP-1.png" class="logo" alt="carter-logo">
+      <a href="/logout" class="btn btn-outline-dark">Logout</a>
+    </nav>
+
+    <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-6">
+        <div class="well">
+          <h3><span class="fa fa-user"></span> Local</h3>
+
+          <% if (user.local.email) { %>
+            <p>
+              <strong>id</strong>: <%= user._id %><br>
+                <strong>email</strong>: <%= user.local.email %><br>
+                  <strong>password</strong>: <%= user.local.password %>
+            </p>
+
+            <a href="/unlink/local" class="btn btn-default">Unlink</a>
+            <% } else { %>
+              <a href="/connect/local" class="btn btn-default">Connect Local</a>
+              <% } %>
+
+        </div>
+      </div>
+
+      <div class="row mx-auto border-bottom">
+        <div class="col">
+          <!-- got piece of base code from Zsolt on CodePen-->
+          <canvas class="js-paint paint-canvas mx-auto bg-white" width="450" height="450"></canvas>
+          <input type="color" class="js-color-picker color-picker">
+          <input type="range" class="js-line-range" min="1" max="72" value="1">
+          <label class="js-range-value">1</label>Px
+          <button type="button" class="clearcanvas">Clear</button>
+          <!-- clear canvas -->
+        </div>
+        <div class="col">
+          <textarea type="text" class="blurb ml-5" placeholder="How are you today, really?"></textarea>
+          <label>Save Image as:</label>
+          <input type="text" class="filename" required>
+          <input type="radio" class="png" name="imgtype" value="png" required>PNG (transparent background)
+          <input type="radio" class="jpeg" name="imgtype" value="jpeg" required>JPEG (black background)
+          <button type="button" class="savetodb">Save</button>
+          <!-- save to db -->
+          <button type="button" class="download">Download</button>
+          <!-- user downloads to local storage -->
+
+        </div>
+      </div>
+    </div>
+    <div class></div>
+    <div>
+      <h2 class="text-center">Saved Images</h2>
+      <div class="g-col-6 savedimages borde d-flex rounded-5">
+        <% for(let i=0; i<gallery.length; i++) {%>
+          <div class="subsavedimages d-flex flex-column border-end m-2 rounded text-center p-2">
+            <img src="<%= gallery[i].canvas %>">
+            <%= gallery[i].filename %>
+              <%= gallery[i].blurb %>
+          </div>
+          <% } %>
+
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

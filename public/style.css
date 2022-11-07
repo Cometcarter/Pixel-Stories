@@ -1,0 +1,45 @@
+body {
+  word-wrap: break-word;
+  background: rgb(27, 126, 153);
+  background: linear-gradient(155deg, rgba(27, 126, 153, 1) 5%, rgba(177, 174, 169, 0.8995973389355743) 50%, rgba(229, 191, 172, 1) 100%);
+}
+
+img {
+  height: 200px;
+}
+
+.paint-canvas {
+  border: 1px black solid;
+  display: block;
+  margin: 1rem;
+}
+
+.color-picker {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.well {
+  display: none;
+}
+
+nav {
+  height: 10vh;
+}
+
+textarea {
+  margin-top: 2%;
+  height: 60%;
+  width: 100%;
+}
+
+.savedimages {
+  overflow-x: auto;
+}
+
+.subsavedimages {
+  background-color: rgba(240, 248, 255, .5);
+}
+
+.logo {
+  height: 65px;
+}
