@@ -92,37 +92,40 @@ colorPicker.addEventListener('change', event => {
 const lineWidthRange = document.querySelector('.js-line-range');
 const lineWidthLabel = document.querySelector('.js-range-value');
 
-lineWidthRange.addEventListener('input', event => {
+lineWidthRange.addEventListener('input', event => { //setting the pixel size of virtual pen
   const width = event.target.value;
   lineWidthLabel.innerHTML = width;
   context.lineWidth = width;
 });
 
-let x = 0, y = 0;
+let x = 0, y = 0; //inital value
 let isMouseDown = false;
 
 const stopDrawing = () => { isMouseDown = false; }
 const startDrawing = event => {
   isMouseDown = true;
   [x, y] = [event.offsetX, event.offsetY];
+  //position of mouse on page where you pressed click
 }
 const drawLine = event => {
-  if (isMouseDown) {
-    const newX = event.offsetX;
+  if (isMouseDown) { //only draws when the mouse down is true
+    const newX = event.offsetX; //sets current postition to where you clicked
     const newY = event.offsetY;
+    //this is where you start drawing 
     context.beginPath();
     context.moveTo(x, y);
-    context.lineTo(newX, newY);
+    context.lineTo(newX, newY); //the new current position where you click to start drawing
     context.stroke();
     //[x, y] = [newX, newY];
     x = newX;
     y = newY;
+    //
   }
 }
 
-paintCanvas.addEventListener('mousedown', startDrawing);
+paintCanvas.addEventListener('mousedown', startDrawing);//when mouse is clicked or is moving inside of the canvas' range it will initiate the startDrawing function
 paintCanvas.addEventListener('mousemove', drawLine);
-paintCanvas.addEventListener('mouseup', stopDrawing);
+paintCanvas.addEventListener('mouseup', stopDrawing); //when mouse is clicked aagain or moved out of the canvas' range it will initiate the stopDrawing function
 paintCanvas.addEventListener('mouseout', stopDrawing);
 // =================================================================================
 

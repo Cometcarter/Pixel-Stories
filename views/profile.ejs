@@ -41,24 +41,37 @@
       <div class="row mx-auto border-bottom">
         <div class="col">
           <!-- got piece of base code from Zsolt on CodePen-->
-          <canvas class="js-paint paint-canvas mx-auto bg-white" width="450" height="450"></canvas>
-          <input type="color" class="js-color-picker color-picker">
-          <input type="range" class="js-line-range" min="1" max="72" value="1">
-          <label class="js-range-value">1</label>Px
-          <button type="button" class="clearcanvas">Clear</button>
+          <canvas class="js-paint paint-canvas mx-auto bg-white" width="400" height="400"></canvas>
+          <div class="d-flex canvas-direc">
+            <input type="color" class="js-color-picker color-picker m-2">
+            <input type="range" class="js-line-range m-2" min="1" max="72" value="1">
+            <label class="js-range-value m-2">1</label>Px
+            <button type="button" class="clearcanvas btn btn-outline-dark m-2">Clear</button>
+          </div>
           <!-- clear canvas -->
         </div>
         <div class="col">
-          <textarea type="text" class="blurb ml-5" placeholder="How are you today, really?"></textarea>
-          <label>Save Image as:</label>
-          <input type="text" class="filename" required>
-          <input type="radio" class="png" name="imgtype" value="png" required>PNG (transparent background)
-          <input type="radio" class="jpeg" name="imgtype" value="jpeg" required>JPEG (black background)
-          <button type="button" class="savetodb">Save</button>
-          <!-- save to db -->
-          <button type="button" class="download">Download</button>
-          <!-- user downloads to local storage -->
+          <textarea type="text" class="blurb ml-5 form-control" placeholder="How are you today, really?"></textarea>
+          <div class="d-flex saving-sec">
+            <div class="direction-sec">
+              <label class="m-3">Save Image as:</label>
+              <input type="text" class="filename m-3" required>
+            </div>
+            <hr>
+            <div class="direction-sec">
+              <input type="radio" class="png m-3" name="imgtype" value="png" required>PNG
+              (transparent background)
+              <input type="radio" class="jpeg m-3" name="imgtype" value="jpeg" required>JPEG (black background)
+            </div>
+            <hr>
+            <div class="direction-sec">
+              <button type="button" class="savetodb btn btn-outline-dark m-3">Save</button>
+              <!-- save to db -->
+              <button type="button" class="download btn btn-outline-dark m-3">Download</button>
+            </div>
 
+            <!-- user downloads to local storage -->
+          </div>
         </div>
       </div>
     </div>

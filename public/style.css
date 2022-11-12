@@ -11,7 +11,6 @@ img {
 .paint-canvas {
   border: 1px black solid;
   display: block;
-  margin: 1rem;
 }
 
 .color-picker {
@@ -42,4 +41,37 @@ textarea {
 
 .logo {
   height: 65px;
+}
+
+.canvas-direc {
+  justify-content: center;
+  align-items: center;
+}
+
+.saving-sec {
+  height: 10%;
+  flex-direction: column;
+}
+
+.direction-sec {
+  display: flex;
+  justify-content: center;
+}
+
+.login-container,
+.signup-container,
+.index-container {
+  background-color: rgba(93, 56, 56, 0.5);
+  width: 80vw;
+  max-width: 37.5em;
+  padding: 3em 2.5em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  left: 25%;
+  border-radius: 0.62em;
+  box-shadow: 0 1.25em 1.8em rgba(8, 21, 65, 0.25)
+}
+.full-background{
+  background-image: url(./wave.gif);
 }
